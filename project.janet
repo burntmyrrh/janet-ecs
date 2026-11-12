@@ -6,4 +6,5 @@
   :version "0.0.0")
 
 (declare-source
-  :source ["janet-ecs"])
+  :source ["src/init.janet"]
+  :prefix "ecs")
