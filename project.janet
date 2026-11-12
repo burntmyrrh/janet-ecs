@@ -1,0 +1,9 @@
+(declare-project
+  :name "janet-ecs"
+  :description ```simple entity-component-system library for janet ```
+  :author ```burntmyrrh ```
+  :dependencies @["spork"]
+  :version "0.0.0")
+
+(declare-source
+  :source ["janet-ecs"])
