@@ -19,13 +19,10 @@
   "add given component to an entity of a world"
   (eachp [_ component] (pairs components) (put entity (first component) (last component))))
 
-(defn remove-component [entity component-key]
-  "removes component key from a given entity"
-  (put entity component-key nil))
-
+# TODO: varargs
 (defn remove-components [entity component-keys]
   "removes an array of component keys from a given entity"
-  (each key component-keys (remove-component entity key)))
+  (each key component-keys (put entity key nil)))
 
 #  TODO: add `:one`, `:any`, `:all` instead
 #  (defn query [world components mode])

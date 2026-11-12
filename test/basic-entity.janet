@@ -21,7 +21,7 @@
 (assert (= 10 (get player :mana)))
 (print-1 "player has correct values in added components")
 
-(ecs/remove-component player :health)
+(ecs/remove-components player @[:health])
 (assert (has-key? player :name))
 (assert (not (has-key? player :health)))
 (assert (has-key? player :mana))
