@@ -26,3 +26,24 @@
 (defn remove-components [entity component-keys]
   "removes an array of component keys from a given entity"
   (each key component-keys (remove-component entity key)))
+
+#  TODO: add `:one`, `:any`, `:all` instead
+#  (defn query [world components mode])
+
+(defn query-component [world component-key]
+  "query world for entities with component"
+  (filter |(has-key? $ component-key) (values world)))
+
+(defn query-components [world component-keys]
+  "query world for entities with given components"
+  (filter
+    (fn [e]
+      (any? (map
+              (fn [c]
+                (has-key? e c))
+              component-keys)))
+    (values world)))
+
+(defn tick [world tick-systems]
+  "calculates a world tick with the given tick-based systems"
+  (each system tick-systems (eval (system world))))
