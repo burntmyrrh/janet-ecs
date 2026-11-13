@@ -24,10 +24,7 @@
   "removes an array of component keys from a given entity"
   (each key component-keys (put entity key nil)))
 
-#  TODO: add `:one`, `:any`, `:all` instead
-#  (defn query [world components mode])
-
-(defn query [world components mode]
+(defn query [world mode & components]
   ```
   queries a world with given components based on a mode
   returns a list of entities that match the given criteria
