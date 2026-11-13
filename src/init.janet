@@ -15,12 +15,13 @@
   "kills a given entity of a world"
   (put world (get entity :id) nil))
 
+# TODO: change is so that you can do `ecs/add-components e :health 10` instead
+# ... change to varargs then from-pairs https://janet-lang.org/api/misc.html#from-pairs
 (defn add-components [entity components]
   "add given component to an entity of a world"
   (eachp [_ component] (pairs components) (put entity (first component) (last component))))
 
-# TODO: varargs
-(defn remove-components [entity component-keys]
+(defn remove-components [entity & component-keys]
   "removes an array of component keys from a given entity"
   (each key component-keys (put entity key nil)))
 
