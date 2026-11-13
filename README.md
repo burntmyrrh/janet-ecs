@@ -50,7 +50,15 @@ for more examples, check out [the tests](./test)
 
 ## installation
 
-TBD
+assuming an Unix system and `janet-pm` installed;
+
+```shell
+git clone https://github.com/burntmyrrh/janet-ecs
+cd janet-ecs
+janet-pm install
+```
+
+that's it! start a REPL with `janet -l ecs` or run `(import ecs)` inside of it
 
 ## license
 
