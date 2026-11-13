@@ -4,12 +4,12 @@
 
 (defn damage-over-time [world]
   "applies a damage over time to all entities alive"
-  (def bodies (ecs/query-components world @[:health]))
+  (def bodies (ecs/query world @[:health] :any))
   (each body bodies (update body :health - 1)))
 
 (defn kill-dead [world]
   "kills off dead (`:health` equals to `0`) entities"
-  (def bodies (ecs/query-components world @[:health]))
+  (def bodies (ecs/query world @[:health] :any))
   (each body bodies (when (>= 0 (get body :health)) (ecs/kill-entity world body))))
 
 (def tick-systems @[damage-over-time kill-dead])

@@ -17,8 +17,9 @@
 (def sword (ecs/create-entity world))
 (ecs/add-components sword @{:name "steel sword" :damage 2})
 
-(assert (= 2 (length (ecs/query-components world @[:health]))) "should have two entities with health")
-(assert (= 1 (length (ecs/query-components world @[:damage]))) "should have one entity with damage")
+(assert (= 2 (length (ecs/query world @[:health] :all))) "should have two entities with health")
+(assert (= 2 (length (ecs/query world @[:health :name] :all))) "should have two entities with health and name")
+
 (print-1 "successfully queried two entities with health and one with damage components")
 
 (print "")

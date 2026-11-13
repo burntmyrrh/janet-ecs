@@ -27,19 +27,26 @@
 #  TODO: add `:one`, `:any`, `:all` instead
 #  (defn query [world components mode])
 
-(defn query-component [world component-key]
-  "query world for entities with component"
-  (filter |(has-key? $ component-key) (values world)))
-
-(defn query-components [world component-keys]
-  "query world for entities with given components"
-  (filter
-    (fn [e]
-      (any? (map
-              (fn [c]
-                (has-key? e c))
-              component-keys)))
-    (values world)))
+(defn query [world components mode]
+  ```
+  queries a world with given components based on a mode
+  returns a list of entities that match the given criteria
+  
+  current modes supported:
+    `:any` matches any entities with given components
+    `:all` matches all entities with given components
+  ```
+  (match mode
+    :any (filter
+           (fn [entity]
+             (any? (map
+                     (fn [component]
+                       (has-key? entity component)) components))) (values world))
+    :all (filter
+           (fn [entity]
+             (every? (map
+                       (fn [component]
+                         (has-key? entity component)) components))) (values world))))
 
 (defn tick [world tick-systems]
   "calculates a world tick with the given tick-based systems"
