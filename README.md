@@ -20,13 +20,15 @@ for more examples, check out [the tests](./test)
 # systems are just janet functions!
 # every tick-based system requires this signature
 # everything can be accessed through the `world`
-(defn damage-over-time [world]
+(defn damage-over-time 
   "applies a damage over time to all entities alive"
+  [world]
   (def bodies (ecs/query world :any :health))
   (each body bodies (update body :health - 1)))
 
-(defn kill-dead [world]
+(defn kill-dead
   "kills off dead (`:health` equals to `0`) entities"
+  [world]
   (def bodies (ecs/query world :any :health))
   (each body bodies (when (>= 0 (get body :health)) (ecs/kill-entity world body))))
 
