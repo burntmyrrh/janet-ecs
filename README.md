@@ -62,4 +62,4 @@ that's it! start a REPL with `janet -l ecs` or run `(import ecs)` inside of it
 
 ## license
 
-[GNU General Public License v3.0](LICENSE)
+[GNU General Public License v3.0](COPYING)
