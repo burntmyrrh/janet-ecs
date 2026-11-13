@@ -25,7 +25,6 @@
 (assert (has-key? player :name))
 (assert (not (has-key? player :health)))
 (assert (has-key? player :mana))
-(print-1 "`ecs/remove-component` works correctly")
 
 (ecs/remove-components player :name :mana)
 (assert (not (has-key? player :name)))
