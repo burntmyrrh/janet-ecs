@@ -1,6 +1,6 @@
 # `janet-ecs`
 
-simple and readable ECS (entity-component-system) library for the janet language. no dependencies other than `spork`. so small you can embed the code!
+simple and readable ECS (entity-component-system) library for the janet language. no dependencies! so small you can embed the code!
 
 ## planned features
 

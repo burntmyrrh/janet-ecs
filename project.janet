@@ -2,7 +2,7 @@
   :name "janet-ecs"
   :description ```simple entity-component-system library for janet ```
   :author ```burntmyrrh ```
-  :dependencies @["spork"]
+  :dependencies @[]
   :version "0.0.0")
 
 (declare-source
