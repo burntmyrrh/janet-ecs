@@ -4,8 +4,8 @@
 
 (defn create-entity [world]
   "creates and returns a new entity"
-  (def id (length world))
-  (get (put world id @{:id id}) id))
+  (let [id (length world)]
+    (get (put world id @{:id id}) id)))
 
 (defn alive? [world entity]
   "check if a given entity is alive in a world"
